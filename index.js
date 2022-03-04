@@ -7,17 +7,24 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 bot.use(telegrafGetChatMembers)
 
 
+
 bot.on('message', async(ctx) => {
     
-    let  user = ctx.getChatMembers()[0].status;
     let idUser = ctx.getChatMembers()[0].user.id;
-//    console.log(ctx.message) 
+    let chatId = ctx.message.chat.id
+    let chatIds = `${ctx.message.chat.id}`
+    let fromId = ctx.message.from.id
+    let  user = telegrafGetChatMembers.all[`${chatId}`][`${fromId}`].status;
+//    console.log(ctx.message.chat.id)
+    
+    
+
+
    
 
-      if(user !== 'creator' && user !== 'administrator' && idUser === ctx.message.from.id){
-
+      if(user === 'member'  ){
         try{
-        await ctx.reply(`${ctx.message.from.username}, вы не можете писать в данный чат 
+        await ctx.reply(`@${ctx.message.from.username}, вы не можете писать в данный чат 
 Обратитесь к администратору`) 
         
          for(let i = -1; i <= 0; i++){
@@ -28,16 +35,16 @@ bot.on('message', async(ctx) => {
           }
         
         }catch (err){
-            console.log('error')
+            console.log("err")
       }
 
-      } else{
-          console.log('work')
-          
-      }
+      } 
 
 })
 
+
+
+ 
 
 
 
