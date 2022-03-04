@@ -31,7 +31,7 @@ bot.on('message', async(ctx) => {
             await setTimeout(() => {
                ctx.deleteMessage(ctx.message.message_id-i) 
                 
-            },1000 * 60)
+            },1000 * 15)
           }
         
         }catch (err){
