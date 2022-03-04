@@ -27,7 +27,8 @@ bot.on('message', async(ctx) => {
         await ctx.reply(`@${ctx.message.from.username}, вы не можете писать в данный чат 
 Обратитесь к администратору`) 
         
-         for(let i = -1; i <= 0; i++){
+         for(let i = -1; i <= -1; i++){
+             ctx.deleteMessage(ctx.message.message_id)
             await setTimeout(() => {
                ctx.deleteMessage(ctx.message.message_id-i) 
                 
