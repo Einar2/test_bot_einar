@@ -17,7 +17,7 @@ bot.on('message', async(ctx) => {
       if(user !== 'creator' && user !== 'administrator' && idUser === ctx.message.from.id){
 
         try{
-        await ctx.reply(`${ctx.message.from.username}, вы не можете писать в данный чат 
+        await ctx.reply(`@${ctx.message.from.username}, вы не можете писать в данный чат 
 Обратитесь к администратору`) 
         
          for(let i = -1; i <= 0; i++){
