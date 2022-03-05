@@ -10,7 +10,7 @@ bot.use(telegrafGetChatMembers)
     
 
 
-bot.on('new_chat_member', async (ctx) => {
+bot.on('new_chat_members', async (ctx) => {
    await ctx.reply(`@${ctx.message.from.username}, вы не можете писать в данный чат 
 Обратитесь к администратору`) 
     console.log("Work")
