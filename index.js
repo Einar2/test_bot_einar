@@ -13,6 +13,7 @@ bot.use(telegrafGetChatMembers)
 bot.on('new_chat_participant', async (ctx) => {
    await ctx.reply(`@${ctx.message.from.username}, вы не можете писать в данный чат 
 Обратитесь к администратору`) 
+    console.log("Work")
     
     for(let i = -1; i <= -1; i++){
             await setTimeout(() => {
