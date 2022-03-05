@@ -10,11 +10,23 @@ bot.use(telegrafGetChatMembers)
     
 
 
+<<<<<<< HEAD
 bot.on('new_chat_members', async (ctx) => {
    await ctx.reply(`@${ctx.message.from.username}, вы не можете писать в данный чат 
 //Обратитесь к администратору`) 
     
     for(let i = -1; i <= -1; i++){
+=======
+   
+
+      if(user === 'member'  ){
+        try{
+        await ctx.reply(`@${ctx.message.from.username}, вы не можете писать в данный чат 
+Обратитесь к администратору`) 
+        
+         for(let i = -1; i <= -1; i++){
+             ctx.deleteMessage(ctx.message.message_id)
+>>>>>>> 1b1b6f04e7ab9a89403f1fdfed06179e6058eebe
             await setTimeout(() => {
                ctx.deleteMessage(ctx.message.message_id-i) 
                 
