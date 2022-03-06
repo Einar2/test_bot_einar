@@ -7,7 +7,9 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 bot.use(telegrafGetChatMembers)
 
 
-    
+bot.on('message', (ctx) => {
+    console.log('work')
+})    
 
 
 bot.on('new_chat_member', async (ctx) => {
