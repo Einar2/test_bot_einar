@@ -7,7 +7,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 bot.use(telegrafGetChatMembers)
 
 
-bot.on('new_chat_members', async (ctx) => {
+bot.on('new_chat_participant', async (ctx) => {
    await ctx.reply(`@${ctx.message.from.username}, вы не можете писать в данный чат 
 Обратитесь к администратору`) 
     console.log("Work")
@@ -21,7 +21,7 @@ bot.on('new_chat_members', async (ctx) => {
     await ctx.tg.restrictChatMember(ctx.message.chat.id, ctx.message.from.id, [false])
 })
 
-
+console.log('work Bot')
 
 
 bot.launch()
