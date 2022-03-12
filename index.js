@@ -18,27 +18,29 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 //     await ctx.tg.restrictChatMember(ctx.message.chat.id, ctx.message.from.id, [false])
 // })
 
+bot.on('chat_member', (ctx) => {
 
-bot.on('message', async(ctx) => {
-//     if(ctx.message.new_chat_member != undefined){
-//            await ctx.reply(`@${ctx.message.from.username}, вы не можете писать в данный чат 
-// Обратитесь к администратору`) 
+    if(ctx.update.chat_member.new_chat_member.status == 'restricted'){
+      console.log('work')
+       
+    }
+
     
-//     for(let i = -1; i <= -1; i++){ 
-//             await setTimeout(() => {
-//                ctx.deleteMessage(ctx.message.message_id-i) 
-                
-//             },1000 * 15)
-//           }
-//     await ctx.tg.restrictChatMember(ctx.message.chat.id, ctx.message.from.id, [false])
-//     }
-    console.log(ctx);
+
+    
 })
 
 console.log('work Bot')
 
 
-bot.launch()
+var options2 =
+{
+    allowedUpdates: ['chat_member']
+}
+
+
+
+bot.launch(options2)
 
 // Enable graceful stop
 process.once('SIGINT', () => bot.stop('SIGINT'))
