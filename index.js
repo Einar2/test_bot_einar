@@ -20,10 +20,8 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 
 bot.on('chat_member', (ctx) => {
 
-    if(ctx.update.chat_member.new_chat_member.status == 'restricted'){
       console.log('work')
        
-    }
 
     
 
