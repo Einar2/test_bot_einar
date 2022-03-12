@@ -20,18 +20,19 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 
 
 bot.on('message', async(ctx) => {
-    if(ctx.message.new_chat_member != undefined){
-           await ctx.reply(`@${ctx.message.from.username}, вы не можете писать в данный чат 
-Обратитесь к администратору`) 
+//     if(ctx.message.new_chat_member != undefined){
+//            await ctx.reply(`@${ctx.message.from.username}, вы не можете писать в данный чат 
+// Обратитесь к администратору`) 
     
-    for(let i = -1; i <= -1; i++){ 
-            await setTimeout(() => {
-               ctx.deleteMessage(ctx.message.message_id-i) 
+//     for(let i = -1; i <= -1; i++){ 
+//             await setTimeout(() => {
+//                ctx.deleteMessage(ctx.message.message_id-i) 
                 
-            },1000 * 15)
-          }
-    await ctx.tg.restrictChatMember(ctx.message.chat.id, ctx.message.from.id, [false])
-    }
+//             },1000 * 15)
+//           }
+//     await ctx.tg.restrictChatMember(ctx.message.chat.id, ctx.message.from.id, [false])
+//     }
+    console.log(ctx);
 })
 
 console.log('work Bot')
