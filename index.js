@@ -18,16 +18,33 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 //     await ctx.tg.restrictChatMember(ctx.message.chat.id, ctx.message.from.id, [false])
 // })
 
-bot.on('chat_member', (ctx) => {
+bot.on('chat_member', async(ctx) => {
 
-    if(ctx.update.chat_member.new_chat_member.status == 'member'){
-      console.log('work')
-       
+        const chatId = ctx.update.chat_member.chat.id;
+        const messageId = ctx.update.update_id;
+        if(ctx.update.chat_member.new_chat_member.status == 'member'){
+        await ctx.reply(`@${ctx.update.chat_member.new_chat_member.user.username}, вы не можете писать в данный чат 
+Обратитесь к администратору`)
+            
+
+//        await ctx.tg.restrictChatMember(ctx.update.chat_member.chat.id, ctx.update.chat_member.new_chat_member.user.id, [false])
+        
     }
+})
 
-    
 
-    
+bot.on('message', async ctx => {
+    const chatId = ctx.message.chat.id;
+    const fromId = ctx.message.from.id;
+        for(let i = -1; i <= -1; i++){ 
+            await setTimeout(() => {
+                try{
+                  ctx.deleteMessage(ctx.message.message_id-i)  
+                }catch{console.log('err')}
+                
+                
+            },1000 * 15)
+    } 
 })
 
 console.log('work Bot')
