@@ -52,7 +52,7 @@ console.log('work Bot')
 
 var options2 =
 {
-    allowedUpdates: ['chat_member']
+    allowedUpdates: ['chat_member', 'message']
 }
 
 
